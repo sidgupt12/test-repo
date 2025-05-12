@@ -42,6 +42,14 @@ export default function Report() {
       setLoading(true);
       setError(null);
       const storeId = Cookies.get('storeId');
+      const userRole = Cookies.get('userRole');
+      const userData = Cookies.get('userData');
+      
+      console.log('Debug - Cookies:', {
+        storeId,
+        userRole,
+        userData: userData ? JSON.parse(userData) : null
+      });
       
       if (!storeId) {
         throw new Error('Store ID not found. Please ensure you are logged in.');
